@@ -1,3 +1,3 @@
 <?php
-  $db = new mysqli('localhost:8889', 'root', 'root', 'kateho');
+  $db = new mysqli('localhost:3306', 'habuchi', 'Haruton5', 'habuchi');
 ?>
