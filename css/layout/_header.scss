@@ -1,0 +1,40 @@
+@use "../foundation/mixin" as m;
+
+.l-header{
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3.2rem;
+  @include m.mq(sp){
+    padding: 0 1.6rem;
+  }
+  &--join{
+    display: block;
+  }
+  &__title{
+    font-size: 3rem;
+    line-height: 5rem;
+    font-weight: bold;
+    @include m.mq(sp){
+      font-size: 2.4rem;
+    }
+    &--join{
+      text-align: center;
+      line-height: 8rem;
+    }
+  }
+  &__icon{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    font-size: 2rem;
+  }
+  &__menu .c-layer{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+  }
+}

@@ -1,0 +1,506 @@
+@use "../global" as g;
+@use "../foundation/mixin" as m;
+
+.p-section {
+  //ユーザー登録入力セクション
+  //ユーザー登録確認セクション
+  &__join-input,
+  &__join-confirm {
+    width: 70%;
+    min-width: 45rem;
+    margin: 0 auto;
+    padding: 3rem 0;
+    background-color: #eee;
+    border-radius: 1rem;
+    @include m.mq(sp) {
+      width: 100%;
+      min-width: inherit;
+    }
+    .c-button {
+      margin: 1.6rem 0 0;
+      font-size: 1.6rem;
+      border-radius: 1rem;
+      letter-spacing: 0.3rem;
+      text-indent: 0.3rem;
+      text-align: center;
+    }
+  }
+  //ユーザー登録入力セクション
+  &__join-input {
+    .p-form {
+      margin: 0 auto 4rem;
+      .c-button {
+        width: 100%;
+        padding: 1.2rem 0;
+        text-align: center;
+      }
+    }
+    > p {
+      text-align: center;
+      font-size: 1.6rem;
+    }
+    > .c-button {
+      display: block;
+      width: 80%;
+      margin: 1.6rem auto 0;
+      padding: 1.5rem 0;
+      text-align: center;
+    }
+  }
+
+  //ユーザー登録確認セクション
+  &__join-confirm {
+    .p-form {
+      margin: 0 auto;
+      .u-flex-box {
+        gap: 2rem;
+        @include m.mq(sp) {
+          flex-direction: column-reverse;
+          gap: 1.6rem;
+        }
+        a {
+          width: 40%;
+          padding: 1.6rem 0;
+          font-size: 1.6rem;
+          text-align: center;
+          @include m.mq(sp) {
+            width: 100%;
+            margin-top: 0;
+          }
+        }
+        input {
+          width: 60%;
+          padding: 1.2rem 0;
+          @include m.mq(sp) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  //ユーザー登録完了セクション
+  &__thanks {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    @include m.mq(sp) {
+      width: 100%;
+    }
+    p {
+      line-height: 7rem;
+      font-size: 2rem;
+      @include m.mq(sp) {
+        font-size: 1.8rem;
+      }
+    }
+    a {
+      display: block;
+      width: 50%;
+      min-width: 5rem;
+      margin: 2rem auto;
+      border-radius: 1rem;
+      padding: 1rem 0;
+      font-size: 1.8rem;
+      @include m.mq(sp) {
+        width: 80%;
+      }
+    }
+  }
+
+  //ログインフォームセクション
+  &__login {
+    width: 70%;
+    min-width: 45rem;
+    margin: 0 auto;
+    padding: 3rem 0;
+    background-color: #eee;
+    border-radius: 1rem;
+    @include m.mq(sp) {
+      width: 100%;
+      min-width: inherit;
+    }
+    > p {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-top: 4rem;
+    }
+    > a.c-button {
+      display: block;
+      width: 80%;
+      margin: 1.6rem auto 0;
+      text-align: center;
+      padding: 1.3rem 0;
+      border-radius: 1rem;
+      font-size: 1.6rem;
+    }
+  }
+
+  //支出データ入力セクション
+  &__records-input {
+    min-width: 43rem;
+    max-width: 45rem;
+    width: 50%;
+    @include m.mq(tab) {
+      width: 100%;
+      min-width: inherit;
+      max-width: inherit;
+    }
+    .c-button--bg-gray.reset {
+      width: 40rem;
+      border: none;
+      border-radius: 1rem;
+      margin-top: 1rem;
+      padding: 0.8rem 0;
+      text-align: center;
+      font-weight: bold;
+      @include m.mq(sp) {
+        width: 100%;
+      }
+    }
+    &.hide {
+      @include m.mq(tab) {
+        display: none;
+      }
+    }
+  }
+
+  &__calendar {
+    margin-top: 2rem;
+    width: calc(100% - 45rem);
+    min-width: 560px;
+    @include m.mq(tab) {
+      width: 100%;
+      min-width: inherit;
+      margin-top: 4rem;
+      &.hide {
+        @include m.mq(tab) {
+          display: none;
+        }
+      }
+    }
+    p {
+      font-size: 1.8rem;
+      @include m.mq(tab) {
+        font-size: 2.2rem;
+        text-align: center;
+      }
+      a {
+        display: inline-block;
+        padding: 0 1rem;
+        font-size: 1.7rem;
+        font-weight: bold;
+        &:last-of-type {
+          font-weight: normal;
+          padding: 0.5rem 1rem;
+          border-radius: 0.5rem;
+          background-color: #ddd;
+        }
+      }
+    }
+  }
+
+  //支出データ出力セクション
+  &__records-output {
+    margin: 4rem 0 0;
+    > h3 {
+      font-size: 2.8rem;
+      text-align: center;
+      font-weight: bold;
+    }
+    .p-form {
+      padding: 3rem 0 1rem;
+    }
+    &.hide {
+      @include m.mq(tab) {
+        display: none;
+      }
+    }
+  }
+
+  //カテゴリー追加・更新フォームセクション
+  &__category-edit {
+    margin: 4rem 0 2rem;
+    .p-message-box {
+      margin: 2rem 0 0;
+    }
+  }
+
+  //他のカテゴリー編集ボタンセクション
+  &__other-catbutton {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    .c-button {
+      padding: 1rem;
+      font-size: 1.4rem;
+      border-radius: 0.5rem;
+      @include m.mq(sp) {
+        padding: 2rem 0;
+        width: calc(50% - 1.6rem);
+        text-align: center;
+      }
+    }
+  }
+
+  //メッセージセクション
+  &__message {
+    margin: 2rem auto;
+    &--join {
+      width: 70%;
+      min-width: 45rem;
+      animation: error-message 1s alternate;
+      @include m.mq(sp) {
+        width: 100%;
+        min-width: inherit;
+      }
+    }
+  }
+
+  //全画面表示ボックス
+  &__full-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    .p-message-box {
+      width: 40%;
+      min-width: 40rem;
+      max-width: 50rem;
+      height: 18rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border-radius: 1.6rem;
+      text-align: center;
+      z-index: 100;
+      @include m.mq(sp) {
+        width: 90%;
+        min-width: inherit;
+        max-width: inherit;
+      }
+      &.line-blue {
+        border: solid 0.3rem g.$main-blue;
+      }
+      &.line-red {
+        border: solid 0.3rem g.$dark-red;
+      }
+      p {
+        line-height: 8.5rem;
+        font-size: 2.6rem;
+        @include m.mq(sp) {
+          font-size: 2rem;
+        }
+      }
+      .c-button {
+        width: 90%;
+        padding: 0.8rem 0;
+        border-radius: 1rem;
+        font-size: 1.6rem;
+        letter-spacing: 0.5rem;
+        text-indent: 0.5rem;
+        @include m.mq(sp) {
+          padding: 1rem 0;
+        }
+      }
+    }
+  }
+
+  //ホームへ戻るリンクセクション
+  &__back-home {
+    margin: 5rem 0;
+    .c-button {
+      display: block;
+      font-size: 1.6rem;
+      padding: 1.6rem 0;
+      border-radius: 1rem;
+      text-align: center;
+      width: 30%;
+      min-width: 14rem;
+      max-width: 25rem;
+      margin: 0 auto;
+      @include m.mq(sp) {
+        width: 70%;
+      }
+    }
+  }
+
+  //レポートとグラフsection
+  &__report {
+    margin: 10rem 0 0;
+    @include m.mq(tab) {
+      margin: 3rem 0 0;
+    }
+    &.hide {
+      @include m.mq(tab) {
+        display: none;
+      }
+    }
+    h3 {
+      font-size: 2.8rem;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__graph-box {
+      max-width: 110rem;
+      display: none;
+      margin: 7rem auto 0;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 7rem;
+      @include m.mq(tab) {
+        flex-direction: column;
+        gap: 4rem;
+        margin: 4rem auto 0;
+      }
+      &.is-active {
+        display: flex;
+      }
+      .plot-container {
+        width: 55%;
+        @include m.mq(tab) {
+          width: 100%;
+        }
+        .svg-container {
+          margin: 0 auto;
+        }
+      }
+      > p {
+        display: block;
+        font-size: 2rem;
+        margin-bottom: 5rem;
+        width: 100%;
+        text-align: center;
+        @include m.mq(tab) {
+          margin: 2rem 0 0;
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+
+  //月別推移グラフsection
+  &__bar-graph {
+    @include m.mq(tab) {
+      margin-top: 1rem;
+    }
+    .sum {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+      p {
+        text-align: center;
+      }
+      span {
+        font-size: 2rem;
+      }
+    }
+    .bar-graph {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      @include m.mq(tab) {
+        overflow-x: scroll;
+      }
+      // &::before {
+      //   @include m.mq(sp) {
+      //     content: "";
+      //     position: absolute;
+      //     top: 0;
+      //     left: 0;
+      //     width: 850px;
+      //     height: 100%;
+      //     background-color: rgba(0, 0, 0, 0.5);
+      //     opacity: 0;
+      //     animation: fade-out 3s;
+      //   }
+      // }
+      // &::after {
+      //   @include m.mq(sp) {
+      //     content: "スクロールして見られます";
+      //     position: absolute;
+      //     top: 50%;
+      //     left: 50%;
+      //     width: 100%;
+      //     transform: translate(-50%, -50%);
+      //     color: #fff;
+      //     font-size: 1.6rem;
+      //     font-weight: bold;
+      //     text-align: center;
+      //     opacity: 0;
+      //     animation: fade-out 3s;
+      //   }
+      // }
+      // span {
+      //   display: none;
+      //   position: absolute;
+      //   top: 60%;
+      //   left: 70%;
+      //   animation: scroll-finger 3s;
+      //   opacity: 0;
+      //   z-index: 10;
+      //   @include m.mq(sp) {
+      //     display: block;
+      //   }
+      //   i {
+      //     color: #fff;
+      //     font-size: 3rem;
+      //   }
+      // }
+    }
+  }
+
+  //月別アイテム金額推移データリストsection
+  &__item-report-datalist {
+    max-width: 50rem;
+    margin: 4rem auto 0;
+  }
+
+  //パスワードリセットリクエスト成功section
+  &__request-success {
+    width: 75rem;
+    margin: 1.6rem auto 0;
+    padding: 4rem 0;
+    background-color: #eee;
+    border-radius: 1rem;
+    text-align: center;
+    @include m.mq(tab) {
+      width: 100%;
+      padding: 3rem 2rem;
+    }
+    p {
+      text-align: center;
+      font-size: 2rem;
+      @include m.mq(tab) {
+        font-size: 1.6rem;
+      }
+      &.caution {
+        font-size: 1.3rem;
+        margin-top: 3rem;
+        line-height: 1.6;
+      }
+    }
+    .c-link {
+      text-decoration: underline;
+      color: g.$main-blue;
+    }
+    .c-button {
+      width: 60%;
+      max-width: 40rem;
+      display: block;
+      margin: 3rem auto 0;
+      text-align: center;
+      padding: 1.4rem 0;
+      font-size: 1.6rem;
+      border-radius: 1rem;
+      letter-spacing: 0.1rem;
+      @include m.mq(sp) {
+        width: 100%;
+      }
+    }
+  }
+}

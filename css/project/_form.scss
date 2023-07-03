@@ -1,0 +1,672 @@
+@use "../global" as g;
+@use "../foundation/mixin" as m;
+.p-form {
+  * {
+    font-size: 1.6rem;
+  }
+
+  //各formスタイリング===================
+  //フォーム全体を左右中央にするレイアウト
+  &--center {
+    text-align: center;
+  }
+
+  //日付フィルターフォームレイアウト
+  &--date-search {
+    label[for="date-search"] {
+      vertical-align: middle;
+      @include m.mq(sp) {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      input {
+        @include m.mq(sp) {
+          max-width: 12rem;
+          font-size: 1.4rem;
+        }
+      }
+      input[type="date"] {
+        @include m.mq(sp) {
+          padding: 0.5rem 1rem;
+          min-width: 12rem;
+          min-height: 3.4rem;
+        }
+      }
+    }
+    .c-button {
+      border-radius: 0.5rem;
+      border: none;
+      padding: 0.3rem 1.2rem;
+      margin-right: 0.5rem;
+      @media screen and (max-width: 601px) {
+        width: 80%;
+        max-width: 35rem;
+        display: block;
+        margin: 1.6rem auto;
+        padding: 0.8rem 0;
+        color: #333;
+      }
+    }
+  }
+
+  //ホームデータ入力フォームレイアウト
+  &--input-record {
+    > div {
+      margin: 2rem 0;
+      @include m.mq(sp) {
+        margin: 2.4rem 0;
+      }
+      label[for="date"] {
+        @include m.mq(sp) {
+          width: 100%;
+        }
+      }
+      input[type="text"],
+      input[type="date"],
+      input[type="number"],
+      select {
+        width: 21rem;
+        padding: 0.3rem;
+        border: solid 0.1rem #333;
+        border-radius: 0.3rem;
+        color: #333;
+        background-color: #fff;
+        text-align: left;
+      }
+
+      input[type="text"],
+      input[type="date"],
+      input[type="number"] {
+        @include m.mq(sp) {
+          width: 100%;
+          padding: 0.5rem.3rem;
+        }
+      }
+      //支出収入のラジオボタン
+      &.type {
+        label {
+          width: 15rem;
+          text-align: center;
+          background-color: #fff;
+          border: solid 0.15rem g.$main-blue;
+          color: g.$main-blue;
+          border-radius: 0.7rem;
+          padding: 1rem 0;
+          letter-spacing: 0.7rem;
+          @include m.mq(sp) {
+            width: 50%;
+          }
+        }
+        input[type="radio"] {
+          display: none;
+          @include m.mq(sp) {
+          }
+          //選択状態にあるときのレイアウト
+          &:checked + label {
+            background-color: g.$main-blue;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    //日付入力要素
+    &__dateinput {
+      width: 100%;
+      align-items: center;
+      span {
+        font-size: 2rem;
+        cursor: pointer;
+      }
+      input {
+        position: relative;
+        width: 25rem;
+        margin: 0 1rem;
+        text-align: center;
+        @include m.mq(tab) {
+          width: 75%;
+        }
+        &::-webkit-calendar-picker-indicator {
+          position: absolute;
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+        }
+      }
+    }
+
+    //カテゴリー選択以下のスマホ用レイアウト
+    .sp-change-order {
+      @include m.mq(spWide) {
+        flex-wrap: wrap;
+        gap: inherit;
+      }
+      p:first-of-type {
+        @include m.mq(sp) {
+          min-width: inherit;
+        }
+      }
+      select {
+        @include m.mq(spWide) {
+          display: block;
+          min-width: 20rem;
+        }
+        @include m.mq(sp) {
+          width: 100%;
+          order: 3;
+          max-width: 35rem;
+          padding: 0.3rem;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+    //テキストエリアスタイリング
+    textarea {
+      padding: 0.3rem;
+      @include m.mq(sp) {
+        width: 100%;
+      }
+    }
+    //ボタン周り追加スタイリング
+    .c-button--bg-gray {
+      font-size: 1.4rem;
+      margin-left: 0.5rem;
+      padding: 0.6rem 0.3rem;
+      border-radius: 0.3rem;
+      letter-spacing: 0.5rem;
+      text-indent: 0.5rem;
+      @include m.mq(spWide) {
+        display: inline-block;
+        margin-left: 1rem;
+      }
+    }
+    .c-button--bg-blue {
+      width: 40rem;
+      padding: 1.4rem 0;
+      border-radius: 1rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      letter-spacing: 2rem;
+      text-indent: 2rem;
+      text-align: center;
+      @include m.mq(sp) {
+        width: 100%;
+      }
+    }
+  }
+
+  //カテゴリー追加更新フォームレイアウト
+  &--cat-add,
+  &--cat-edit {
+    input[type="text"] {
+      min-width: 20rem;
+      padding: 0.3rem;
+      @include m.mq(sp) {
+        width: 100%;
+        min-width: inherit;
+        padding: 0.5rem;
+      }
+    }
+    .c-button--bg-blue,
+    .c-button--bg-gray {
+      min-width: 20rem;
+      border-radius: 0.5rem;
+      vertical-align: middle;
+    }
+    .c-button--bg-blue {
+      letter-spacing: 0.5rem;
+      text-indent: -0.5rem;
+      padding: 0.3rem 0;
+      text-align: center;
+      @include m.mq(sp) {
+        width: 100%;
+        padding: 0.5rem 0;
+      }
+    }
+    .c-button--bg-gray {
+      display: inline-block;
+      text-align: center;
+      letter-spacing: 0.1rem;
+      text-indent: -0.1rem;
+      padding: 0.9rem 0;
+      margin-left: 0.5rem;
+      @include m.mq(sp) {
+        width: 100%;
+        padding: 1.1rem 0;
+        margin-left: 0;
+        margin-top: 0.7rem;
+      }
+    }
+  }
+  //編集ボタン押下JavaScriptイベント用
+  &--cat-add {
+    &.hide {
+      display: none;
+    }
+  }
+  &--cat-edit {
+    display: none;
+    &.show {
+      display: block;
+    }
+  }
+
+  //アカウント管理
+  &--account {
+    width: 70%;
+    min-width: 50rem;
+    margin: 3rem auto 0;
+    background-color: #eee;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    @include m.mq(sp) {
+      width: 100%;
+      min-width: inherit;
+    }
+    .info {
+      display: flex;
+      align-items: center;
+      margin: 1.8rem 0;
+      @include m.mq(sp) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 2rem 0;
+      }
+      p {
+        font-size: 1.8rem;
+        @include m.mq(sp) {
+          font-size: 1.6rem;
+        }
+        &:first-of-type {
+          min-width: 13rem;
+          @include m.mq(sp) {
+            width: 100%;
+            min-width: inherit;
+            line-height: 1.4;
+          }
+        }
+        &:last-of-type {
+          width: 70%;
+          min-width: 23rem;
+          @include m.mq(sp) {
+            min-width: inherit;
+          }
+        }
+      }
+      .c-button {
+        padding: 0.2rem 1rem;
+        border-radius: 0.5rem;
+        letter-spacing: 0.3rem;
+        text-indent: 0.3rem;
+      }
+    }
+  }
+
+  //アカウント管理編集全画面表示フォーム
+  &--account-edit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    max-width: 45rem;
+    min-width: 40rem;
+    background-color: #eee;
+    border-radius: 1rem;
+    padding: 1.6rem 2.8rem 2rem;
+    @include m.mq(sp) {
+      min-width: inherit;
+      width: 85%;
+      padding: 1.6rem 2rem 2rem;
+    }
+    .p-form__center {
+      width: 90%;
+      margin: 2.4rem auto 1rem;
+      @include m.mq(sp) {
+        width: 100%;
+      }
+      .c-button--bg-blue {
+        width: 60%;
+        margin-left: 2rem;
+        border-radius: 1rem;
+        padding: 1rem 0;
+        @include m.mq(sp) {
+          display: block;
+          margin: 2rem auto 0;
+          width: 80%;
+        }
+      }
+    }
+    .p-form__vertical-input input {
+      width: 100%;
+      padding: 0.5rem;
+      background-color: #fff;
+    }
+  }
+
+  //ログイン・ユーザー登録・パスワード再設定フォーム共通
+  &--join,
+  &--login,
+  &--password-reset {
+    p {
+      &.nickname-check,
+      &.username-check,
+      &.pass-check,
+      &.pass-match-check,
+      &.email-check {
+        padding-top: 0.5rem;
+        font-size: 1.4rem;
+      }
+      &.short,
+      &.pass-check,
+      &.weak,
+      &.mismatch,
+      &.incorrect {
+        color: g.$dark-red;
+      }
+      &.strong,
+      &.match {
+        color: g.$dark-green;
+      }
+      &.normal {
+        color: g.$main-blue;
+      }
+    }
+  }
+
+  //ユーザー登録フォーム
+  &--join {
+    width: 80%;
+    span {
+      font-size: 1.3rem;
+      margin-left: 0.5rem;
+      &:not(.c-text--red) {
+        @media screen and (max-width: 376px) {
+          display: inline-block;
+        }
+      }
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="number"] {
+      width: 40%;
+      min-width: 20rem;
+      padding: 0.3rem;
+      background-color: #fff;
+      @include m.mq(sp) {
+        width: 90%;
+        padding: 0.5rem 0.3rem;
+      }
+    }
+  }
+
+  //ログインフォーム
+  &--login {
+    width: 80%;
+    margin: 0 auto;
+    span {
+      font-size: 1.4rem;
+      padding-left: 0.5rem;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 40%;
+      min-width: 20rem;
+      padding: 0.3rem;
+      background-color: #fff;
+      @include m.mq(sp) {
+        width: 100%;
+        padding: 0.5rem 0.3rem;
+      }
+    }
+    .c-button {
+      width: 100%;
+      padding: 1rem 0;
+      margin-top: 1.6rem;
+      font-size: 1.6rem;
+      letter-spacing: 0.3rem;
+      text-indent: 0.3rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+  }
+
+  //詳細モーダル追加ボタンフォーム
+  &--calendar-modal {
+    .c-button--bg-blue.add {
+      position: fixed;
+      top: 0;
+      right: 2rem;
+      width: inherit;
+      min-width: inherit;
+      font-size: 2rem;
+      margin-top: 0;
+      padding: 0.5rem 1.6rem;
+      border-radius: 1rem;
+      z-index: 10;
+    }
+  }
+
+  //月別推移フォーム
+  &--bar-graph {
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 0 0 2rem 0;
+    select {
+      font-size: 1.6rem;
+      padding: 0.2rem 0.7rem;
+      border: solid 0.1rem #333;
+    }
+    .c-button {
+      font-size: 1.6rem;
+      padding: 0.2rem 1rem;
+      border-radius: 0.5rem;
+      letter-spacing: 0.2rem;
+      text-indent: 0.2rem;
+    }
+  }
+
+  //詳細検索フォーム
+  &--detail-search {
+    border-radius: 3rem;
+    padding: 5rem;
+    @include m.mq(sp) {
+      padding: 5rem 3rem 3rem;
+    }
+    .remodal-close {
+      top: 1.5rem;
+      right: 2rem;
+      left: inherit;
+      &::before {
+        font-size: 3.5rem;
+      }
+    }
+    .p-form__flex-input {
+      position: relative;
+      gap: 0.5rem;
+      padding-bottom: 2rem;
+      justify-content: center;
+      @include m.mq(sp) {
+        padding-bottom: 1.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      > p {
+        font-size: 1.8rem;
+        width: 20rem;
+        text-align: left;
+        @include m.mq(sp) {
+          width: 15rem;
+          font-size: 1.6rem;
+        }
+      }
+      > input,
+      > select {
+        font-size: 1.6rem;
+        text-align: left;
+        padding: 0.3rem;
+        width: 26rem;
+        border: solid 0.1rem #333;
+        border-radius: 0.3rem;
+        @include m.mq(sp) {
+          width: 100%;
+          font-size: 1.4rem;
+          padding: 0.5rem;
+        }
+      }
+      > select {
+        @include m.mq(sp) {
+          appearance: none;
+        }
+      }
+      i {
+        display: none;
+        position: absolute;
+        top: 45%;
+        right: 1rem;
+        font-size: 1.4rem;
+        @include m.mq(sp) {
+          display: block;
+        }
+      }
+    }
+    .c-button {
+      display: block;
+      width: 60%;
+      min-width: 40rem;
+      margin: 3rem auto 0;
+      padding: 1rem 0;
+      border-radius: 1rem;
+      font-size: 1.6rem;
+      @include m.mq(sp) {
+        width: 100%;
+        min-width: inherit;
+        margin: 1.5rem auto 0;
+      }
+    }
+
+    //月年別収支レポート
+    &.all-report {
+      flex-wrap: wrap;
+      input[type="submit"] {
+        width: 2.4rem;
+        height: 2.4rem;
+        background-color: g.$main-blue;
+        border: solid 0.1rem g.$main-blue;
+        color: #fff;
+        font-size: 1.8rem;
+        border-radius: 3rem;
+        text-align: center;
+        transition: all 0.3s;
+        &:hover {
+          background-color: #fff;
+          color: g.$main-blue;
+        }
+      }
+      input[type="text"] {
+        width: 12rem;
+        padding: 0 0 0.3rem 0;
+        text-align: center;
+        border: none;
+        font-size: 2.4rem;
+        letter-spacing: 0.2rem;
+        text-indent: 0.2rem;
+      }
+      .p-form__flex-input {
+        width: 100%;
+        gap: 0;
+        justify-content: center;
+        margin-top: 1.8rem;
+        label {
+          width: 12rem;
+          text-align: center;
+          background-color: #fff;
+          border: solid 0.15rem g.$main-blue;
+          font-size: 1.4rem;
+          color: g.$main-blue;
+          padding: 0.7rem 0;
+          letter-spacing: 0.7rem;
+          @include m.mq(sp) {
+            width: 50%;
+          }
+          &[for="spending"] {
+            border-top-left-radius: 5rem;
+            border-bottom-left-radius: 5rem;
+          }
+          &[for="income"] {
+            border-top-right-radius: 5rem;
+            border-bottom-right-radius: 5rem;
+          }
+        }
+        input[type="radio"] {
+          display: none;
+          //選択状態にあるときのレイアウト
+          &:checked + label {
+            background-color: g.$main-blue;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  //form直下div=========================
+  //ラベルと入力ボックスが横並びのレイアウト
+  &__flex-input {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    p {
+      min-width: 7.5rem;
+      &.long-name {
+        min-width: 14rem;
+      }
+    }
+  }
+
+  //ラベルと入力ボックスが縦並びのレイアウト
+  &__vertical-input {
+    margin: 1.6rem 0;
+    p:first-of-type {
+      padding-bottom: 0.8rem;
+    }
+  }
+
+  //div内を中央揃えにするレイアウト
+  &__center {
+    text-align: center;
+  }
+
+  //選択項目を入れるdiv
+  &__item-box {
+    display: inline-block;
+    @include m.mq(sp) {
+      display: block;
+      width: 100%;
+      order: 3;
+    }
+  }
+
+  //よく使うタイトルリスト
+  &__often-use-title {
+    align-items: flex-start;
+    p {
+      padding-top: 0.5rem;
+      line-height: 1.2;
+    }
+    ul {
+      gap: 0.5rem 0.7rem;
+      flex-wrap: wrap;
+      max-width: 32rem;
+      li {
+        cursor: pointer;
+        padding: 1.2rem 1rem;
+        background-color: #def;
+        border-radius: 1rem;
+      }
+    }
+  }
+}

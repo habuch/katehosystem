@@ -1,0 +1,9 @@
+@use "../global" as g;
+@use "../foundation/mixin" as m;
+
+.c-link{
+  text-decoration: underline;
+  &.disabled{
+    pointer-events: none;
+  }
+}

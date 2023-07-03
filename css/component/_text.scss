@@ -1,0 +1,12 @@
+@use "../global" as g;
+
+.c-text{
+  &__subtitle{
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-indent: -1rem;
+  }
+  &--red{
+    color: g.$dark-red;
+  }
+}

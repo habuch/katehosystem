@@ -1,0 +1,47 @@
+@use "../global" as g;
+@use "../foundation/mixin" as m;
+
+.p-navigation {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  padding: 6rem 0 0 0;
+  background-color: g.$main-blue;
+  z-index: 20;
+  &.is-open {
+    animation: slide-in .5s alternate;
+    width: 30%;
+    @include m.mq(sp){
+      width: 70%;
+    }
+  }
+  &.is-close{
+    animation: slide-out 1s alternate;
+    @include m.mq(sp){
+      animation: slide-out-sp 1s alternate;
+    }
+  }
+  li {
+    a {
+      display: block;
+      padding: 2rem 0 2rem 3rem;
+      font-size: 2rem;
+      color: #fff;
+      background-color: g.$main-blue;
+      transition: all 0.3s;
+      @include m.mq(sp){
+        padding: 2rem 0 2rem 2rem;
+        font-size: 1.6rem;
+      }
+      &:hover {
+        color: g.$main-blue;
+        background-color: #fff;
+      }
+      i {
+        padding-right: 1rem;
+      }
+    }
+  }
+}

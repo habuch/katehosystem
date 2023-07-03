@@ -1,0 +1,13 @@
+@use "../foundation/mixin" as m;
+
+.pc_only{
+  @include m.mq(tab){
+    display: none;
+  }
+}
+.sp_only{
+  display: none;
+  @include m.mq(tab){
+    display: block;
+  }
+}

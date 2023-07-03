@@ -1,0 +1,10 @@
+@use "../foundation/mixin" as m;
+.l-main{
+  margin: 0 3.2rem 8rem;
+  @include m.mq(sp){
+    margin: 0 1.6rem 6rem;
+  }
+  h2{
+    margin: 1.6rem 0;
+  }
+}

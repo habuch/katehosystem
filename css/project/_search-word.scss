@@ -1,0 +1,30 @@
+@use "../global" as g;
+@use "../foundation/mixin" as m;
+
+.p-search-word {
+  width: 50%;
+  min-width: 50rem;
+  margin: 0 auto 3rem;
+  @include m.mq(sp) {
+    width: 100%;
+    min-width: inherit;
+  }
+  p {
+    font-size: 1.6rem;
+    @include m.mq(sp) {
+      font-size: 1.3rem;
+    }
+    span {
+      margin-right: 0.7rem;
+      padding: 0.3rem 1.6rem;
+      border: solid 0.15rem g.$main-blue;
+      border-radius: 3rem;
+      color: g.$main-blue;
+      letter-spacing: 0.1rem;
+      text-indent: 0.1rem;
+      @include m.mq(sp) {
+        padding: 0.3rem 1rem;
+      }
+    }
+  }
+}

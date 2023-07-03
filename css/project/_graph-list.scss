@@ -1,0 +1,32 @@
+@use "../global" as g;
+@use "../foundation/mixin" as m;
+
+.p-graph-list {
+  max-width: 110rem;
+  display: flex;
+  justify-content: space-around;
+  margin: 5rem auto 2rem;
+  border-bottom: solid 0.2rem g.$main-blue;
+  @include m.mq(tab){
+    margin: 3rem auto 2rem;
+  }
+  li {
+    width: calc(100% / 4);
+    text-align: center;
+    padding: 1.4rem 0;
+    color: g.$main-blue;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all .3s;
+    @include m.mq(tab){
+      font-size: 1.4rem;
+      line-height: 1.3;
+      padding: 1rem 0;
+    }
+    &.is-active,
+    &:hover{
+      background-color: g.$main-blue;
+      color: #fff;
+    }
+  }
+}

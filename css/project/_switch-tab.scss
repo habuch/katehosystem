@@ -1,0 +1,33 @@
+@use "../global" as g;
+@use "../foundation/mixin" as m;
+
+.p-switch-tab {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: solid 0.2rem g.$main-blue;
+  background-color: #fff;
+  z-index: 10;
+  @include m.mq(tab) {
+    display: flex;
+  }
+  &__item {
+    width: calc(100% / 3);
+    padding: 1.4rem 0;
+    text-align: center;
+    font-size: 1.3rem;
+    color: g.$main-blue;
+    cursor: pointer;
+    i {
+      display: block;
+      font-size: 2.4rem;
+      padding-bottom: .7rem;
+    }
+    &.is-active {
+      background-color: g.$main-blue;
+      color: #fff;
+    }
+  }
+}

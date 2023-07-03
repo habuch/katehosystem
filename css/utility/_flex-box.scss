@@ -1,0 +1,11 @@
+@use "../foundation/mixin" as m;
+
+.u-flex-box{
+  display: flex;
+  &.records-input-calendar{
+    gap: 2rem;
+    @include m.mq(tab){
+      display: block;
+    }
+  }
+}

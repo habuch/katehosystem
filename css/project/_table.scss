@@ -1,0 +1,162 @@
+@use "../global" as g;
+@use "../foundation/mixin" as m;
+
+.p-table {
+  font-size: 1.6rem;
+
+  //各tableスタイリング
+  &--record-output {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  &--category {
+    width: 40%;
+    min-width: 30rem;
+    @include m.mq(sp) {
+      width: 100%;
+      min-width: inherit;
+    }
+  }
+  &--account {
+    width: 70%;
+    min-width: 50rem;
+    margin: 3rem auto 0;
+    background-color: #eee;
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    @include m.mq(sp) {
+      width: 100%;
+      min-width: inherit;
+    }
+  }
+
+  &--record-output,
+  &--category {
+    border-collapse: collapse;
+    tr {
+      //データ無し行
+      &.nodata {
+        line-height: 2.5;
+      }
+      //該当クラスtr以外に下線
+      &:not(.p-table__foot) {
+        border-bottom: solid 0.1rem #ddd;
+      }
+      //一番左カラムの左に余白
+      th:first-of-type,
+      td:first-of-type {
+        padding-left: 0.5rem;
+      }
+      //操作カラムは中央寄せ・幅固定
+      &:not(.p-table__join-row):not(.p-table__foot) th:last-of-type,
+      td:last-of-type {
+        width: 11rem;
+        text-align: center;
+        form {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  //レポートグラフ横テーブル
+  &--graph {
+    width: 45%;
+    border-collapse: collapse;
+    @include m.mq(tab) {
+      width: 100%;
+    }
+    th,
+    td {
+      font-size: 1.8rem;
+      line-height: 2;
+      border-bottom: solid 0.2rem #ddd;
+      &:first-of-type {
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  //各trスタイリング
+  &__join-row {
+    line-height: 3.5rem;
+    th {
+      text-align: right;
+      span {
+        font-size: 2.6rem;
+        padding-left: 1rem;
+      }
+    }
+  }
+  &__head {
+    background-color: #ddd;
+    line-height: 4rem;
+  }
+  &__item {
+    line-height: 3.8rem;
+    &.hasmemo i {
+      display: inline;
+    }
+    span {
+      font-size: 1.2rem;
+      i {
+        display: none;
+        cursor: pointer;
+        margin-left: 0.2rem;
+        font-size: 1.6rem;
+      }
+    }
+    .c-button {
+      border-radius: 0.5rem;
+      &.edit {
+        padding: 0.6rem 1.4rem;
+        color: g.$dark-green;
+        border: none;
+        margin-right: 0.5rem;
+      }
+      &.delete {
+        vertical-align: middle;
+        padding: 0.2rem 1.5rem;
+        color: g.$dark-red;
+      }
+    }
+  }
+  &__foot {
+    line-height: 3.5rem;
+    border-top: double 0.3rem #333;
+    th:last-of-type {
+      text-align: right;
+    }
+    .text-blue {
+      color: g.$main-blue;
+    }
+    .text-red {
+      color: g.$dark-red;
+    }
+  }
+
+  //エクセル出力用非表示テーブル
+  &--hide {
+    display: none;
+  }
+}
+
+// エクセル出力ボタン
+.excel-button {
+  margin: 1.6rem auto 0;
+  text-align: center;
+  button {
+    padding: 1rem 12rem;
+    border-radius: 1rem;
+    color: #fff;
+    background-color: #198754;
+    border: solid 0.2rem #198754;
+    transition: all 0.2s;
+    font-size: 1.8rem;
+    letter-spacing: 0.05rem;
+    &:hover {
+      background-color: inherit;
+      color: #198754;
+    }
+  }
+}

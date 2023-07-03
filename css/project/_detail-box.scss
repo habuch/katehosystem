@@ -1,0 +1,109 @@
+@use "../global" as g;
+@use "../foundation/mixin" as m;
+
+.p-detail-box {
+  width: 70%;
+  min-width: 65rem;
+  max-width: 70rem;
+  max-height: 80vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1.6rem;
+  text-align: center;
+  animation: fadeIn 1s;
+  overflow-y: scroll;
+  @include m.mq(tab) {
+    width: 90%;
+    min-width: inherit;
+  }
+  &__title {
+    font-size: 2rem;
+    line-height: 2;
+    padding: 1rem 0 2rem;
+  }
+  i {
+    display: none;
+  }
+  .hasmemo i {
+    display: inline;
+  }
+  &__content {
+    width: 80%;
+    margin: 2rem auto;
+    text-align: left;
+    @include m.mq(sp) {
+      width: 95%;
+    }
+    &:not(:last-of-type) {
+      padding-bottom: 2rem;
+      border-bottom: solid 1px #ccc;
+    }
+    .outline {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 1.8rem;
+      .text-red,
+      .text-blue,
+      span {
+        white-space: nowrap;
+      }
+    }
+    .detail {
+      font-size: 1.4rem;
+      padding-top: 0.5rem;
+    }
+  }
+  &__editbutton {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 1rem;
+    > form,
+    > a {
+      width: 45%;
+    }
+    .c-button {
+      padding: 1rem 0;
+      text-align: center;
+      border-radius: 0.5rem;
+      font-size: 1.4rem;
+      letter-spacing: 0.1rem;
+      &--bg-green {
+        width: 100%;
+        border: none;
+        color: #198754;
+      }
+      &--bg-red {
+        color: #dc3545;
+      }
+    }
+  }
+  .c-button--bg-blue {
+    display: block;
+    width: 60%;
+    min-width: 30rem;
+    margin: 4rem auto 0;
+    text-align: center;
+    padding: 1rem 0;
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    @include m.mq(sp) {
+      width: 100%;
+      min-width: inherit;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

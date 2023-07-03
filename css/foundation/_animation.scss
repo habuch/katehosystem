@@ -1,0 +1,122 @@
+@keyframes error-message {
+	0% {
+		transform: translate(0, 0);
+	}
+	5% {
+		transform: translate(-5px, -0);
+	}
+	10% {
+		transform: translate(5px, 0);
+	}
+	15% {
+		transform: translate(-5px, -0);
+	}
+	20% {
+		transform: translate(5px, 0);
+	}
+	25% {
+		transform: translate(-5px, -0);
+	}
+	30% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+@keyframes fade-out {
+	0% {
+		opacity: 1;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes scroll-finger {
+	0% {
+		opacity: 1;
+		left: 70%;
+	}
+	35% {
+		left: 30%;
+	}
+	50% {
+		left: 70%;
+	}
+	75% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		left: 30%;
+	}
+}
+
+@keyframes slide-in {
+	0% {
+		right: -100%;
+	}
+	100% {
+		right: 0%;
+	}
+}
+@keyframes slide-out {
+	0% {
+		right: 0%;
+		width: 30%;
+	}
+	99% {
+		right: -100%;
+		width: 30%;
+	}
+	100% {
+		width: 0%;
+	}
+}
+@keyframes slide-out-sp {
+	0% {
+		right: 0%;
+		width: 70%;
+	}
+	99% {
+		right: -100%;
+		width: 70%;
+	}
+	100% {
+		width: 0%;
+	}
+}
+
+@keyframes rotate-in {
+	0% {
+		transform: translate(-50%, -50%) rotate(-90deg);
+		opacity: 0;
+	}
+	50% {
+		transform: translate(-50%, -50%) rotate(-45deg);
+		opacity: 0.5;
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(0deg);
+		opacity: 1;
+	}
+}
+@keyframes rotate-out {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+		opacity: 1;
+	}
+	50% {
+		transform: translate(-50%, -50%) rotate(45deg);
+		opacity: 0.5;
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(90deg);
+		opacity: 0;
+	}
+}

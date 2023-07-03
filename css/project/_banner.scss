@@ -1,0 +1,34 @@
+@use "../global" as g;
+@use "../foundation/mixin" as m;
+
+.p-banner {
+  position: relative;
+  display: block;
+  width: 50%;
+  min-width: 50rem;
+  max-width: 60rem;
+  margin: 2rem auto;
+  padding: 1rem 0;
+  transition: all 0.3s;
+  text-align: center;
+  font-size: 2rem;
+  border-radius: 1rem;
+  &::after {
+    content: "\2b";
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  &:hover::after {
+    color: g.$main-blue;
+  }
+  @include m.mq(sp) {
+    width: 100%;
+    min-width: inherit;
+    font-size: 1.6rem;
+  }
+}

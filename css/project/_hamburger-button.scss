@@ -1,0 +1,54 @@
+@use "../global" as g;
+@use "../foundation/mixin" as m;
+
+.p-hamburger-button {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 5.8rem;
+  height: 5.8rem;
+  background-color: g.$main-blue;
+  border-bottom-left-radius: 1rem;
+  cursor: pointer;
+  z-index: 25;
+  i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2.8rem;
+    &:first-of-type {
+      opacity: 1;
+    }
+    &:last-of-type {
+      opacity: 0;
+    }
+  }
+  &.is-open {
+    i {
+      &:first-of-type {
+        animation: rotate-out 0.2s ease;
+        opacity: 0;
+      }
+      &:last-of-type {
+        animation: rotate-in 0.2s ease;
+        opacity: 1;
+      }
+    }
+    & + .c-layer {
+      display: block;
+      animation: fade-in 0.5s alternate;
+    }
+  }
+  &.is-close {
+    i {
+      &:first-of-type {
+        animation: rotate-in 0.2s ease;
+      }
+      &:last-of-type {
+        animation: rotate-out 0.2s ease;
+      }
+    }
+  }
+}

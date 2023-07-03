@@ -1,0 +1,48 @@
+@use "../global" as g;
+
+.c-button{
+  &--bg-gray{
+    background-color: #ddd;
+    border: solid .2rem #ddd;
+  }
+  &--bg-blue{
+    color: #fff;
+    background-color: g.$main-blue;
+    border: solid .2rem g.$main-blue;
+    transition: all .2s;
+    &:hover{
+      background-color: inherit;
+      color: g.$main-blue;
+    }
+  }
+  &--bg-darkred{
+    color: #fff;
+    background-color: g.$dark-red;
+    border: solid .2rem g.$dark-red;
+    transition: all .2s;
+    &:hover{
+      background-color: inherit;
+      color: g.$dark-red;
+    }
+  }
+  &--bg-green{
+    background-color: g.$light-green;
+  }
+  &--bg-red{
+    background-color: g.$light-red;
+  }
+  &--bg-lightblue{
+    background-color: #def;
+  }
+
+  &:disabled{
+    background-color: #bbb;
+    color: #fff;
+    border: solid .2rem #bbb;
+    &:hover{
+      background-color: #bbb;
+      color: #fff;
+      border: solid .2rem #bbb;
+    }
+  }
+}

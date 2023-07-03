@@ -1,0 +1,21 @@
+@use "../global" as g;
+
+.p-message-box{
+  border-radius: 1rem;
+  padding: 1.8rem;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  &--error{
+    background-color: g.$light-red;
+    color: g.$dark-red;
+  }
+  &--success{
+    background-color: g.$light-green;
+    span{
+      font-size: 1.4rem;
+    }
+  }
+  &--desc{
+    background-color: #eee;
+  }
+}
